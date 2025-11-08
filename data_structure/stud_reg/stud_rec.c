@@ -8,13 +8,19 @@ typedef struct ST{
 }st;
 
 st* header = NULL;
-int roll_num = 0;
+st* prevNode;
+int roll_num = 1;
 
-#include"stud_add.c"
+#include "stud_add.c"
+#include "stud_choice.c"
+#include "stud_show.c"
+#include "stud_del.c"
+#include "stud_mod.c"
+#include "stud_save.c"
+#include "stud_sort.c"
 
 int main()
 {
-	char menu_opt; 
 
 	printf("************** STUDENT RECORD MENU **************\n");
 
@@ -57,18 +63,6 @@ int main()
 
 	printf("*************************************************\n");
 
-	printf("Enter your choice: ");
-	scanf(" %c", &menu_opt);
-
-	switch(menu_opt)
-	{
-		case 'A':
-		case 'a':
-				stud_add();
-				break;
-		default:	
-				printf("Please enter valid record...!\n");
-				break;
-	}
+	sel_choice();
 
 }
