@@ -1,0 +1,24 @@
+#include<stdio.h>
+
+void stud_del_rec()
+{
+    char ch;
+
+    FILE *fs=fopen("Student_Record.txt","r");
+    FILE *fp=fopen("temp.txt","w");
+
+    while((ch=fgetc(fs))!=EOF)
+    {
+        fprintf(fp,"%c",ch);
+        if(ch=='\n')
+        {
+            fprintf(fp,"%c",'\n');
+            break;
+        }
+    }
+    fclose(fs);
+    fclose(fp);
+
+    remove("student_Record.txt");
+    rename("temp.txt","student_Record.txt");
+}
